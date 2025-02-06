@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 56e103f5cc9309e41ad9b3b556b77390
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304860
+  packageName: The Amazing 3D Laser Animations | Vol1
+  packageVersion: 1.0
+  assetPath: Assets/Flashy Feather Assets/Shield Animations 01/Shader/FF_LaserAnim_01.shadergraph
+  uploadId: 716570
