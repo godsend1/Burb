@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: efd944a25b5e8a24ca3409c3623cb400
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298013
+  packageName: The Amazing Shield Animations | Vol 01
+  packageVersion: 1.0
+  assetPath: Assets/Flashy Feather Assets/Shield Animations 01/Scripts/ShieldDuration.cs
+  uploadId: 698223
