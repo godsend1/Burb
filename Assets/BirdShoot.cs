@@ -33,6 +33,14 @@ public class BirdShoot : MonoBehaviour{
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
         }
 
+        if (Input.GetMouseButton(3))
+        {
+            var bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        }
+    }
+
+    void FixedUpdate()
+    {
         if (Input.GetMouseButton(1))
         {
             var bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
