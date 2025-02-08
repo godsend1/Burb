@@ -8,11 +8,16 @@ public class BirdShoot : MonoBehaviour{
     public GameObject bulletModel;
     public float bulletSpeed;
     public Transform bulletSpawnPoint;
+    public float recoilForce = 10f; // How strong the recoil is
+    public GameObject bullet;
+
+    private Rigidbody playerRb;
 
     void Start()
     {
         animComponent = GetComponent<Animator>(); //fetch the animator this script is attached to
         Sphere = GameObject.Find("Sphere1");
+        playerRb = GameObject.Find("Player1").GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -29,13 +34,18 @@ public class BirdShoot : MonoBehaviour{
         
         if (Input.GetMouseButtonDown(0))
         {
-            var bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;   
+            
         }
 
         if (Input.GetMouseButton(3))
         {
-            var bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        }
+        if(bullet != null && Input.GetKey(KeyCode.LeftShift))
+        {
+            Recoil();
         }
     }
 
@@ -43,7 +53,19 @@ public class BirdShoot : MonoBehaviour{
     {
         if (Input.GetMouseButton(1))
         {
-            var bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet = Instantiate(bulletModel, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
         }
+        if(bullet != null && Input.GetKey(KeyCode.LeftShift))
+        {
+            Recoil();
+        }
+    }
+
+    void Recoil()
+    {
+        // Apply recoil to player (opposite of firePoint direction)
+        Vector3 recoilDirection = -bulletSpawnPoint.forward; // Opposite direction
+        playerRb.AddForce(recoilDirection * recoilForce, ForceMode.Impulse);   
     }
 }
